@@ -105,6 +105,7 @@ static void cb_file_flush(void *data, size_t bytes,
         buf = flb_msgpack_to_json_str(alloc_size, &result);
         if (buf) {
             fprintf(fp, "%s: %s\n", tag, buf);
+            buf = NULL;
             flb_free(buf);
         }
         else {
